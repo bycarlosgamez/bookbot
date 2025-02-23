@@ -1,14 +1,19 @@
+import sys
+
 def main():
-    book_path = "books/frankenstein.txt"
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    book_path = sys.argv[1]
+
     text = get_book_text(book_path)
     num_words = get_num_words(text)
     num_chars = get_num_chars(text)
     sorted_dic = get_sorted_dic(num_chars)
     dic_list = get_dic_list(sorted_dic)
     report = get_report(dic_list, book_path, num_words)
-    # print(f"{num_words}")
-    # print(num_chars)
-    # print(dic_list)
+
     return report
 
 
